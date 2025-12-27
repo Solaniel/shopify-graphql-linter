@@ -1,0 +1,11 @@
+query GetShop {
+  shop {
+    name
+    email
+    primaryDomain {
+      host
+      url
+    }
+  }
+}
+
