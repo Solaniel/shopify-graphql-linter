@@ -221,8 +221,10 @@ class SchemaManager:
             List of available versions
         """
         # For direct proxy, we need to use a valid version to query
-        # The direct proxy only supports 2025-01 and newer
-        query_version = "2025-01" if self.auth.use_direct_proxy else "2024-10"
+        # Sadly, the proxy version must have a valid version string, so we use 2025-10
+        # as would be the latest version at the time of writing.
+        # This will be updated each time a new version is released.
+        query_version = "2025-10"
         endpoint = self.auth.get_endpoint(api, query_version)
         headers = self.auth.get_headers(api)
 
@@ -269,8 +271,8 @@ class SchemaManager:
             supported = [v for v in versions if v.supported and v.handle != "unstable"]
             if not supported:
                 raise RuntimeError("No supported versions found")
-            # Versions are typically sorted newest first
-            return supported[0].handle
+            # Versions are typically sorted oldest first
+            return supported[len(supported) - 1].handle
 
         # Assume it's a specific version string
         return version_spec
