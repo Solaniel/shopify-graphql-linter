@@ -66,7 +66,7 @@ class QueryCollector:
 
         Args:
             paths: List of files or directories to scan
-            extensions: Optional list of extensions to filter by (e.g., ['.php', '.graphql'])
+            extensions: Optional list of extensions to filter by (e.g., ['.php', '.graphql', '.ts', '.tsx'])
 
         Returns:
             List of extracted queries from all matching files

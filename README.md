@@ -4,7 +4,7 @@ A Python CLI tool that validates Shopify GraphQL queries against schema introspe
 
 ## Features
 
-- **Multi-format support**: Extracts GraphQL queries from `.graphql`, `.gql`, and `.php` files (heredoc syntax)
+- **Multi-format support**: Extracts GraphQL queries from `.graphql`, `.gql`, `.php` (heredoc syntax), and `.ts & .tsx` files.
 - **Version comparison**: Compare queries against current and target API versions
 - **Deprecation detection**: Identifies deprecated fields, arguments, and enum values
 - **Breaking change detection**: Reports queries that will break on API upgrade
@@ -147,6 +147,7 @@ app/GraphQL/Queries/Orders.php:23:3
 |-----------|-------------------|
 | `.graphql`, `.gql` | Entire file content |
 | `.php` | Heredoc syntax: `<<<QUERY ... QUERY;` |
+| `.ts or .tsx` | Graphql syntax: `const QUERY, const export const QUERY = "#graphql` |
 
 ## License
 

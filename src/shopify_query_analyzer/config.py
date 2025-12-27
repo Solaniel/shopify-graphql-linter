@@ -82,7 +82,7 @@ class AnalyzerConfig(BaseModel):
     auth: AuthConfig = Field(default_factory=AuthConfig)
     output_format: OutputFormat = Field(OutputFormat.HUMAN, description="Output format")
     extensions: Optional[list[str]] = Field(
-        None, description="File extensions to filter (e.g., ['.php', '.graphql'])"
+        None, description="File extensions to filter (e.g., ['.php', '.graphql', '.ts', '.tsx'])"
     )
     cache_dir: Path = Field(
         Path(".cache/shopify-schema"), description="Directory for caching schemas"

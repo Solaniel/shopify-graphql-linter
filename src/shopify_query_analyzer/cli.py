@@ -120,7 +120,7 @@ def analyze(
         Optional[list[str]],
         typer.Option(
             "--ext", "-e",
-            help="Filter files by extension (can be used multiple times, e.g., --ext .php --ext .graphql --ext .ts).",
+            help="Filter files by extension (can be used multiple times, e.g., --ext .php --ext .graphql --ext .ts --ext .tsx).",
         ),
     ] = None,
     cache_dir: Annotated[
