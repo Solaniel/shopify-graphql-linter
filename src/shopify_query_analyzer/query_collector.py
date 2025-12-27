@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 
-from .extractors import BaseExtractor, ExtractedQuery, GraphQLExtractor, PHPExtractor
+from .extractors import BaseExtractor, ExtractedQuery, GraphQLExtractor, PHPExtractor, TypescriptExtractor
 
 
 class QueryCollector:
@@ -24,12 +24,15 @@ class QueryCollector:
         """Register the built-in extractors."""
         graphql_extractor = GraphQLExtractor()
         php_extractor = PHPExtractor()
+        typescript_extractor = TypescriptExtractor()
 
         for ext in graphql_extractor.extensions:
             self._extractors[ext.lower()] = graphql_extractor
 
         for ext in php_extractor.extensions:
             self._extractors[ext.lower()] = php_extractor
+        for ext in typescript_extractor.extensions:
+            self._extractors[ext.lower()] = typescript_extractor
 
     def register_extractor(self, extractor: BaseExtractor) -> None:
         """
